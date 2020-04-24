@@ -1,0 +1,7 @@
+.header {
+  flex-basis: 100%;
+}
+.logo {
+  display: inline-block;
+  max-width: 150px;
+}
