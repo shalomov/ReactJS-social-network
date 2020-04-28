@@ -2,12 +2,12 @@ import React from "react";
 import Posts from "./Posts/Posts";
 import Profileinfo from "../Profileinfo/Profileinfo";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <section>
       <h1>Profile</h1>
       <Profileinfo />
-      <Posts />
+      <Posts postsData={props.state.postsData} />
     </section>
   );
 };
