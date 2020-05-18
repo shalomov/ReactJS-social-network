@@ -8,12 +8,27 @@ const Profile = (props) => {
     <Post message={postMessage.message} like={postMessage.like} />
   );
 
+  let newPostElem = React.createRef();
+
+  let addPost = () => {
+    props.addPost();
+  }
+
+
+  let onPostChange = () => {
+    let text = newPostElem.current.value;
+    props.updateNewPostText(text);
+  }
+
 
   return (
     <div>
       <h2>my posts</h2>
       <div>
-        <h2>new post </h2>
+          <div>
+            <textarea ref={newPostElem} name="text_message" onChange={ onPostChange } className="text_message"  cols="30" rows="10" value={props.newPostText} />
+            <button onClick={ addPost }>Add post</button>
+          </div>
           {postMessage}
       </div>
     </div>

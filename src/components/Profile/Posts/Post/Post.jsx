@@ -4,9 +4,9 @@ const Post = (props) => {
   return (
     <div>
       <div>
-        {props.message}
+        <div>{props.message}</div>
         <span>like {props.like}</span>
-        </div>
+      </div>
     </div>
   );
 };

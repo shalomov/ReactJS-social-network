@@ -1,0 +1,23 @@
+.photo_friend {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+.item_friend {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    align-items: center;
+    flex-basis: 0;
+    margin-bottom: 10px;
+}
+.name_friend {
+    text-align: center;
+    font-size: 17px;
+    line-height: 20px;
+}
