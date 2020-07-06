@@ -10,6 +10,10 @@ img {
   box-sizing: border-box;
 }
 
+textarea {
+  resize: none;
+}
+
 .app-wrapper {
  display: flex;
  flex-wrap: wrap;
@@ -23,6 +27,10 @@ img {
   flex-basis: 74%;
 }
 .app-content h1  {
-  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: 100;
   text-align: center;
+  font-size: 35px;
+  margin-top: 0;
 }

@@ -29,6 +29,7 @@ ul {
     background-color: rgb(238, 255, 253);
     border-radius: 6px;
     padding-top: 15px;
+    margin-bottom: 15px;
 }
 
 .item:nth-child(odd) .dialog_text {
@@ -39,8 +40,4 @@ ul {
 }
 .item:nth-child(odd) {
     flex-direction: row-reverse;
-}
-
-.item:not(:last-child) {
-    margin-bottom: 15px;
 }

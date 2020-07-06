@@ -1,35 +1,46 @@
 import React from "react";
 import Post from "./Post/Post";
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCreator,
+} from "../../../redux/state";
+import c from "./Posts.module.css";
 
 const Profile = (props) => {
-
-  
-  let postMessage = props.postsData.map( postMessage => 
+  let postMessage = props.postsData.map((postMessage) => (
     <Post message={postMessage.message} like={postMessage.like} />
-  );
+  ));
 
   let newPostElem = React.createRef();
 
   let addPost = () => {
-    props.dispatch({ type: 'ADD-POST' });
-  }
-
+    props.dispatch(addPostActionCreator());
+  };
 
   let onPostChange = () => {
     let text = newPostElem.current.value;
-    props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
-  }
+    let action = updateNewPostTextActionCreator(text);
+    props.dispatch(action);
+    // props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
+  };
 
   return (
     <div>
-      <h2>my posts</h2>
-      <div>
-          <div>
-            <textarea ref={newPostElem} name="text_message" onChange={ onPostChange } className="text_message"  cols="30" rows="10" value={props.newPostText} />
-            <button onClick={ addPost }>Add post</button>
-          </div>
-          {postMessage}
-      </div>
+      <h2 className={c.title}>My posts</h2>
+
+        {postMessage}
+        <div className={c.post_text__wrapp}>
+          <textarea
+            ref={newPostElem}
+            name="text_message"
+            onChange={onPostChange}
+            className={c.text_message}
+            value={props.newPostText}
+            placeholder="Write a post..."
+          />
+          <button className={c.btn_post} onClick={addPost}>Publish</button>
+        </div>
+
     </div>
   );
 };

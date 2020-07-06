@@ -20,3 +20,48 @@
 ul {
     list-style-type: none;
 }
+
+.dialog_content__wrapp {
+    display: flex;
+}
+.new_msg {
+    padding: 6px 12px;
+    flex: 1 1 auto;
+    outline: none;
+    border-radius: 4px 0 0 4px;
+    background-color: #f5fbff;
+    border-color: #d5ffe3;
+    border-right: none;
+    transition: .3s;
+    font-size: 15px;
+    color: #0f6666;
+}
+.new_msg::placeholder {
+    
+}
+.dialog_btn {
+    text-transform: uppercase;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 0 4px 4px 0 ;
+    border: 1px solid #d5ffe3;
+    color: #0c4444;
+}
+.new_msg:focus {
+    border-color: #79fca2;
+}
+
+.new_msg:focus + .dialog_btn {
+    border-color: #79fca2;
+    background-color: #79fca2;
+    color: #fff;
+}
+.dialog_btn:focus {
+    outline: none;
+}
+.dialog_btn:hover {
+    border-color: #79fca2;
+    background-color: #79fca2;
+    color: #fff;
+}

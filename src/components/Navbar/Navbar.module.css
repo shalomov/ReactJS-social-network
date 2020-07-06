@@ -11,16 +11,20 @@ aside {
 }
 
 .item a {
-  color: #000;
+  color: #a19bb9;
   text-decoration: none;
   transition: .3s;
   padding-top: 2px;
   padding-bottom: 2px;
   display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
 }
 .item a.active {
-  color: #1caa0f;
-  padding-left: 10px;
+  color: #240994;
+  display: block;
+  text-align: center;
 }
 
 .friends_list {
@@ -32,4 +36,10 @@ aside {
 .title_friend {
   margin-top: 0;
   margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 100;
 }

@@ -14,10 +14,12 @@
     margin-right: 10px;
     align-items: center;
     flex-basis: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .name_friend {
     text-align: center;
     font-size: 17px;
     line-height: 20px;
+    text-transform: uppercase;
+    font-weight: 100;
 }
