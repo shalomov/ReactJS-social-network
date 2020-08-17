@@ -1,7 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const ADD_MSG = 'ADD-MSG';
-const UPDTAE_NEW_MESSAGE = 'UPDTAE-NEW-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import asideReducer from "./aside-reducer";
+
+
 
 let store = {
   _state: {
@@ -100,56 +101,16 @@ let store = {
     this._callSubscriber = observer;
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 3,
-        message: this._state.profilePage.newPostText,
-        like: 0,
-      };
-  
-      this._state.profilePage.postsData.push(newPost);
-      this._state.profilePage.newPostText = "";
-  
-      this._callSubscriber(this._state);
-    } else if (action.type === ADD_MSG) {
-      let newMsg = {
-        id: 4,
-        message: this._state.dialogsPage.newMessage,
-        photo:
-          "url(https://focus.ua/storage/pub/images/2015/grumpy-cat_realgrumpycat-Instagram.jpg)",
-      };
-  
-      this._state.dialogsPage.messages.push(newMsg);
-      this._state.dialogsPage.newMessage = "";
-      this._callSubscriber(this._state);
-      
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDTAE_NEW_MESSAGE) {
-      this._state.dialogsPage.newMessage = action.newMsg;
-      this._callSubscriber(this._state);
-    }
+
+    this._state.profileReducer = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.aside = asideReducer(this._state.aside, action);
+
+    this._callSubscriber(this._state);
+
   }
  
 };
 
-export const addPostActionCreator = () => ({
-    type: ADD_POST
-})
-
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT, 
-    newText: text
-})
-
-export const addMsgActionCreator = () => ({
-  type: ADD_MSG
-})
-
-export const updateNewMsgTextActionCreator = (text) => ({
-  type: UPDTAE_NEW_MESSAGE, 
-  newMsg: text
-})
 export default store;
 window.store = store;
