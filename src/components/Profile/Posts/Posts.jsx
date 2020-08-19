@@ -1,26 +1,27 @@
 import React from "react";
-import Post from "./Post/Post";
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from "../../../redux/profile-reducer";
+
 import c from "./Posts.module.css";
 
 const Profile = (props) => {
-  let postMessage = props.postsData.map((postMessage) => (
-    <Post message={postMessage.message} like={postMessage.like} />
-  ));
+
+  
+  // let postMessage = props.postsData.map((postMessage) => (
+  //   <Post message={postMessage.message} like={postMessage.like} />
+  // ));
 
   let newPostElem = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
+  let onAddPost = () => {
+    // props.dispatch(addPostActionCreator());
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPostElem.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewPostText(text);
+
+    // let action = updateNewPostTextActionCreator(text);
+    // props.dispatch(action);
     // props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
   };
 
@@ -28,7 +29,7 @@ const Profile = (props) => {
     <div>
       <h2 className={c.title}>My posts</h2>
 
-        {postMessage}
+
         <div className={c.post_text__wrapp}>
           <textarea
             ref={newPostElem}
@@ -38,7 +39,7 @@ const Profile = (props) => {
             value={props.newPostText}
             placeholder="Write a post..."
           />
-          <button className={c.btn_post} onClick={addPost}>Publish</button>
+          <button className={c.btn_post} onClick={onAddPost}>Publish</button>
         </div>
 
     </div>

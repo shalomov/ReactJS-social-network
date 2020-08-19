@@ -1,5 +1,5 @@
 import React from "react";
-import Posts from "./Posts/Posts";
+import PostsContainer from "./Posts/PostsContainer";
 import Profileinfo from "../Profileinfo/Profileinfo";
 
 const Profile = (props) => {
@@ -7,7 +7,7 @@ const Profile = (props) => {
     <section>
       <h1>Profile</h1>
       <Profileinfo />
-      <Posts postsData={props.state.postsData} newPostText={props.state.newPostText} dispatch={props.dispatch} />
+      <PostsContainer store={props.store} state={props.state} />
     </section>
   );
 };
